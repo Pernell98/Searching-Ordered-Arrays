@@ -9,6 +9,7 @@ namespace SortingAlgorithm
     class Array_Of_Strings
     {
         private string[] words = { "friends", "romans", "and", "countrymen", "lend", "me", "your", "ears", "I", "come","to", "bury", "ceasar","not","to","praise", "him" };
+        private string [] sortedWords;
 
         public Array_Of_Strings()
         {
@@ -18,21 +19,184 @@ namespace SortingAlgorithm
 
             insertionSort();
 
+            Console.WriteLine("Which sort would you like to run?\n0- Exit\n1- Bubble Sort\n2- Insertion Sort\n3- Selection Sort");
+              Console.WriteLine("Which sort would you like to run?\n0- Exit\n1- Bubble Sort\n2- Insertion Sort\n3- Selection Sort");
+
+
+            switch (int.Parse(Console.ReadLine()))
+            {
+
+                case 0:
+
+                    System.Environment.Exit(0);
+
+                    break;
+
+
+              switch (int.Parse(Console.ReadLine()))
+              {
+                  case 0:
+
+                      System.Environment.Exit(0);
+
+                      break;
+
+                case 1:                   
+
+                    display("unsorted words: ", words);
+
+                  case 1:                   
+
+                      display("unsorted words: ", words);
+
+                    sortedWords = bubbleSort(words);
+
+                    display("sorted words using Bubble sort: ", sortedWords);
+
+                      sortedWords = bubbleSort(words);
+
+                      display("sorted words using Bubble sort: ", sortedWords);
+
+                    Console.WriteLine("what would you like to do next?\n0- Exit\n1- Search for a word\n2- add a word\n3- remove a word");
+
+                      Console.WriteLine("what would you like to do next?\n0- Exit\n1- Search for a word\n2- add a word\n3- remove a word");
+
+                    secondaryOptions(int.Parse(Console.ReadLine()));
+
+                      secondaryOptions(sortedWords, int.Parse(Console.ReadLine()));
+
+                    break;
+
+                      break;
+
+                case 2:
+
+                  case 2:
+
+                    display("unsorted words: ", words);
+
+                      display("unsorted words: ", words);
+
+                    sortedWords = insertionSort(words);
+
+                    display("sorted words using Insertion sort: ", sortedWords);
+
+                      sortedWords = insertionSort(words);
+
+                      display("sorted words using Insertion sort: ", sortedWords);
+
+                    Console.WriteLine("what would you like to do next?\n0- Exit\n1- Search for a word\n2- add a word\n3- remove a word");
+
+                      Console.WriteLine("what would you like to do next?\n0- Exit\n1- Search for a word\n2- add a word\n3- remove a word");
+
+                    secondaryOptions(int.Parse(Console.ReadLine()));
+
+                      secondaryOptions(sortedWords, int.Parse(Console.ReadLine()));
+
+                    break;
+
+                      break;
+
+
+
+                case 3:
+
+                  case 3:
+
+                    display("unsorted words: ", words);
+
+                      display("unsorted words: ", words);
+
+                    sortedWords = selectionSort(words);
+
+                    display("sorted words using Selection sort: ", sortedWords);
+
+                      sortedWords = selectionSort(words);
+
+                      display("sorted words using Selection sort: ", sortedWords);
+
+                    Console.WriteLine("what would you like to do next?\n0- Exit\n1- Search for a word\n2- add a word\n3- remove a word");
+
+                      Console.WriteLine("what would you like to do next?\n0- Exit\n1- Search for a word\n2- add a word\n3- remove a word");
+
+                    secondaryOptions(int.Parse(Console.ReadLine()));
+
+                    break;
+              }
+                      secondaryOptions(sortedWords, int.Parse(Console.ReadLine()));
+                      break;
+
+                default:
+
+                    break;
+            }
         }
 
-        public findItem()
+     
+
+        public void searchForAWord(string searchWord)
         {
-            //Finds the item within the program
+            int count = 1;
+
+            for(int a = 0; a < words.Length; a++)
+            {
+                if (searchWord == words[a])
+                {
+                    Console.WriteLine("the search word is in index " + count);
+                }
+                count++;
+            }
         }
 
-        public AddItem()
-        {
-            //Adds an item to the program
-        }
+         public string[] addAWord(string word)
+         {         
+            string[] newArray = new string[words.Length + 1];
 
-        public RemoveItem()
+            for (int a = 0; a < newArray.Length - 1; a++)
+            {
+                newArray[a] = words[a];
+            }
+
+            newArray[words.Length] = word;
+            words = newArray;
+            return words;
+         }
+
+        public void removeAWord(string[] words)
+
+        public string[] removeAWord(string[] words, int index)
         {
-            //Removes the requested item from the program
+            /*
+            * Must continually work on this method
+            * 
+            */
+
+            string[] newArray = new string[words.Length - 1];
+
+            for (int a = 0; a < newArray.Length; a++)
+
+            for (int a = 0, b = 0; a < newArray.Length; a++)
+            {
+                if (words[a].Equals("countrymen"))
+
+
+                if(a == index)
+                {
+                    newArray[a] = words[a + 1];
+
+                    continue;
+                }
+
+
+
+                else
+                {
+                    newArray[a] = words[a];
+                }
+
+                newArray[b++] = words[a];
+            }
+            return newArray;
         }
 
         public string[] bubbleSort()
@@ -106,6 +270,56 @@ namespace SortingAlgorithm
             for(int a = 0; a < words.Length; a++)
             {
                 Console.WriteLine(words[a]); 
+            }
+        }
+
+        public void secondaryOptions(int opt)
+
+        public void secondaryOptions( string[] sortedArray, int opt)
+        {
+            switch (opt)
+            {
+
+                case 0:
+
+                    System.Environment.Exit(0);
+
+                    break;
+
+
+                case 1:
+
+                    Console.WriteLine("what word would you like to look for?");
+                    searchForAWord(Console.ReadLine());
+
+                    break;
+
+
+                case 2:
+
+                Console.WriteLine("What word would you like to add to the array?");
+
+                    string[] newArray =  addAWord(Console.ReadLine());
+                    string[] sortedArry =  addAWord(Console.ReadLine());
+                    display(sortedArray);
+
+                    break;
+
+
+                case 3:
+
+                    Console.WriteLine("What index would you like a word to be remvoed from?");
+
+                    string[] newArray = removeAWord(sortedArray, int.Parse(Console.ReadLine()));
+
+                    display(newArray);
+
+                    break;
+
+                default:
+
+                    break;
+
             }
         }
     }
